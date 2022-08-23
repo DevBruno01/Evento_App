@@ -1,0 +1,98 @@
+:root {
+    --color-1: white;
+}
+
+/*Basic Config*/
+body,
+ul,
+li,
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0px;
+    margin: 0px auto;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, aquamarine, red);
+}
+
+a {
+    text-decoration: none;
+}
+
+label {
+    display: block;
+    margin: 0.5rem 0;
+    font-family: arial;
+    font-size: 20px;
+}
+
+input {
+    border: 1px solid
+}
+
+input {
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+}
+
+
+/*Header*/
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-1);
+}
+
+.header h1 {
+    padding-left: 20px;
+}
+
+.header li {
+    list-style: none;
+    padding-right: 20px;
+}
+
+.header a {
+    color: var(--color-1);
+    font-size: 18px;
+}
+
+/*Form*/
+
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 50px;
+    margin-top: 10px;
+}
+
+.form-inside {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 20px;
+}
+
+.form-inside button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 5px;
+}
+
+@media(max-width: 800px) {
+
+    .form {
+        padding-top: 500px;
+    }
+}
