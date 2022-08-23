@@ -1,6 +1,6 @@
 from flask import Flask
-from routes import main
 from extension import db
+from routes import main
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
