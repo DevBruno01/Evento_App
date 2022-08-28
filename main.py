@@ -11,4 +11,7 @@ app.register_blueprint(main)
 db.init_app(app)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
+
+
+#Data.query.filter_by(name='teste').first()

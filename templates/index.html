@@ -20,7 +20,7 @@
             </nav>
         </header>
         <div class="form">
-            <form class="form-inside" action="{{url_for('main.insert')}}">
+            <form class="form-inside" action="{{url_for('main.insert')}}" method="POST">
                 <label>Nome_evento:<input type="text" name="name"></label>
                 <label>Local:<input type="text" name="local"></label>
                 <label>Data:<input type="date" name="date"></label>

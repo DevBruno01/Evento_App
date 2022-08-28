@@ -11,18 +11,20 @@ def index():
 
 @main.route('/results')
 def render_results():
-    return render_template("results.html")
+    all_data = Data.query.all()
+    return render_template("results.html", evento=all_data)
 
 
-@main.route('/insert', methods=['POST'])
+@main.route('/insert', methods=['GET','POST'])
 def insert():
-    name = request.form['name']
-    local = request.form['local']
-    date = request.form['date']
-    hour = request.form['hour']
+    if request.method == 'POST':
+        name = request.form['name']
+        local = request.form['local']
+        date = request.form['date']
+        hour = request.form['hour']
 
-    my_data = Data(name, local, date, hour)
-    db.session.add(my_data)
-    db.session.commit()
+        my_data = Data(name, local, date, hour)
+        db.session.add(my_data)
+        db.session.commit()
 
     return redirect(url_for('main.index'))

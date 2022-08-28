@@ -1,15 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head></head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/resultados.css">
+    <title>Resultados</title>
+</head>
 
 <body>
-    <h1>Evento APP</h1>
-    <div>
-        <label>Nome do Evento: {{ name }}</label>
-        <label>Local do Evento: {{ local }}</label>
-        <label>Data: {{ date }}</label>
-        <label>Hora: {{ hour }}</label>
+    <header class="header">
+        <h1>Evento APP</h1>
+        <nav>
+            <ul class="navbar">
+                <li><a href="{{url_for('main.index')}}">Cadastrar Evento</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <div class="content">
+        <table class="table">
+            <thead>
+                <tr class="coluna">
+                    <th>Nome_evento</th>
+                    <th>Local</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in evento %}
+                <tr>
+                    <td>{{row.name}}</td>
+                    <td>{{row.local}}</td>
+                    <td>{{row.date}}</td>
+                    <td>{{row.hour}}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
     </div>
 </body>
 

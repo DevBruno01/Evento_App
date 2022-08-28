@@ -1,0 +1,113 @@
+:root {
+    --color-1: white;
+}
+
+/*Basic Config*/
+body,
+ul,
+li,
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0px;
+    margin: 0px auto;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, aquamarine, red);
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-1);
+}
+
+.header h1 {
+    padding-left: 20px;
+}
+
+.header li {
+    list-style: none;
+    padding-right: 20px;
+}
+
+.header a {
+    color: var(--color-1);
+    font-size: 18px;
+}
+
+.content {
+    display: flex;
+}
+
+.table {
+    width: 100%;
+    text-align: center;
+}
+
+.table thead {
+    background: black;
+    font-weight: bold;
+    color: #fff;
+}
+
+.table tbody tr:nth-child(2n) {
+    background: #ccc;
+}
+
+
+
+@media screen and (max-width: 480px) {
+    .content {
+        width: 94%;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tbody td {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    .content {
+        width: 100%;
+    }
+
+    .table tr,
+    .table td {
+        padding: 7px 0;
+    }
+
+    .table tbody tr td:nth-child(1) {
+        width: 10%;
+    }
+
+    .table tbody tr td:nth-child(2) {
+        width: 30%;
+    }
+
+    .table tbody tr td:nth-child(3) {
+        width: 20%;
+    }
+
+    .table tbody tr td:nth-child(4) {
+        width: 15%;
+    }
+}
