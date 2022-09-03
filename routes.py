@@ -3,14 +3,14 @@ from extension import db
 from models import Data
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, TimeField
-
+from wtforms.validators import InputRequired, Length
 main = Blueprint('main', __name__)
 
 class EventoForm(FlaskForm):
-    Nome_Evento = StringField('Nome_Evento')
-    Local = StringField('Local')
-    Data_do_Evento = DateField('Data_do_Evento', format='%Y-%m-%d')
-    Hora_do_Evento = TimeField('Hora_do_Evento', format='%H:%M')
+    Nome_Evento = StringField('Nome_Evento', validators=[InputRequired(), Length(min=4, max=20)])
+    Local = StringField('Local', validators=[InputRequired(), Length(min=4, max=50)])
+    Data_do_Evento = DateField('Data_do_Evento', format='%Y-%m-%d', validators=[InputRequired()])
+    Hora_do_Evento = TimeField('Hora_do_Evento', format='%H:%M', validators=[InputRequired()])
 
 @main.route('/')
 def index():

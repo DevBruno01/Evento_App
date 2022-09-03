@@ -3,7 +3,7 @@ from extension import db, new_table
 class Data(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20))
-    local = db.Column(db.String(100))
+    local = db.Column(db.String(50))
     date = db.Column(db.Date)
     hour = db.Column(db.Time(0))
 
