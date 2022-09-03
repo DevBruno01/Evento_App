@@ -47,10 +47,15 @@
             {% endwith %}
         <div class="form">
             <form class="form-inside" action="{{url_for('main.insert')}}" method="POST">
-                <label>Nome_evento:<input type="text" name="name"></label>
-                <label>Local:<input type="text" name="local"></label>
-                <label>Data:<input type="date" name="date"></label>
-                <label>Hora:<input type="time" name="hour"></label>
+                {{ form.csrf_token }}
+                {{ form.Nome_Evento.label }}
+                {{ form.Nome_Evento }}
+                {{ form.Local.label }}
+                {{ form.Local }}
+                {{ form.Data_do_Evento.label }}
+                {{ form.Data_do_Evento }}
+                {{ form.Hora_do_Evento.label }}
+                {{ form.Hora_do_Evento }}
                 <button type="submit" value="Submit">Salvar</button>
             </form>
         </div>

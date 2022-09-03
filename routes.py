@@ -1,12 +1,21 @@
 from flask import Blueprint, redirect, render_template, request, url_for, flash
 from extension import db
 from models import Data
+from flask_wtf import FlaskForm
+from wtforms import StringField, DateField, TimeField
 
 main = Blueprint('main', __name__)
 
+class EventoForm(FlaskForm):
+    Nome_Evento = StringField('Nome_Evento')
+    Local = StringField('Local')
+    Data_do_Evento = DateField('Data_do_Evento', format='%Y-%m-%d')
+    Hora_do_Evento = TimeField('Hora_do_Evento', format='%H:%M')
+
 @main.route('/')
 def index():
-    return render_template("index.html")
+    form = EventoForm()
+    return render_template("index.html", form=form)
 
 
 @main.route('/results')
@@ -17,13 +26,10 @@ def render_results():
 
 @main.route('/insert', methods=['GET','POST'])
 def insert():
-    if request.method == 'POST':
-        name = request.form['name']
-        local = request.form['local']
-        date = request.form['date']
-        hour = request.form['hour']
+    form = EventoForm()
 
-        my_data = Data(name, local, date, hour)
+    if form.validate_on_submit():
+        my_data = Data(form.Nome_Evento.data, form.Local.data, form.Data_do_Evento.data, form.Hora_do_Evento.data)
         db.session.add(my_data)
         db.session.commit()
         flash("Employee inserted Successfully")
