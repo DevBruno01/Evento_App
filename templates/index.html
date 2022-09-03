@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% from "_render_field.html" import render_field %}
 <html lang="en">
 
 <head>
@@ -48,35 +48,10 @@
         <div class="form">
             <form class="form-inside" action="{{url_for('main.insert')}}" method="POST">
                 {{ form.csrf_token }}
-                {{ form.Nome_Evento.label }}
-                {{ form.Nome_Evento }}
-                 <ul>
-                    {% for error in form.Nome_Evento.errors %}
-                         <li style="color:white;">{{ error }}</li>
-                    {% endfor %}
-                 </ul>
-                {{ form.Local.label }}
-                {{ form.Local }}
-                <ul>
-                    {% for error in form.Local.errors %}
-                         <li style="color:white;">{{ error }}</li>
-                    {% endfor %}
-                 </ul>
-                {{ form.Data_do_Evento.label }}
-                {{ form.Data_do_Evento }}
-                <ul>
-                    {% for error in form.Data_do_Evento.errors %}
-                         <li style="color:white;">{{ error }}</li>
-                    {% endfor %}
-                 </ul>
-
-                {{ form.Hora_do_Evento.label }}
-                {{ form.Hora_do_Evento }}
-                <ul>
-                    {% for error in form.Hora_do_Evento.errors %}
-                         <li style="color:white;">{{ error }}</li>
-                    {% endfor %}
-                 </ul>
+                {{ render_field(form.Nome_Evento) }}
+                {{ render_field(form.Local) }}
+                {{ render_field(form.Data_do_Evento) }}
+                {{ render_field(form.Hora_do_Evento) }}
                 <button type="submit" value="Submit">Salvar</button>
             </form>
         </div>
