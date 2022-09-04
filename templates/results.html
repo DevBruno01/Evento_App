@@ -12,7 +12,7 @@
 
 <body>
     <header class="header">
-        <h1>Evento APP</h1>
+        <h1>Evento App</h1>
         <nav>
             <ul class="navbar">
                 <li><a href="{{url_for('main.index')}}">Cadastrar Evento</a></li>
@@ -46,8 +46,8 @@
 
             {% endwith %}
 
-    <div class="content">
-        <table class="table">
+    <div class="table-responsive">
+        <table class="table table-striped">
             <thead>
                 <tr class="coluna">
                     <th>Nome_evento</th>
@@ -67,7 +67,7 @@
                     <td>
                             <a href="/update/{{row.id}}" class="btn btn-warning btn-xs" data-bs-toggle="modal"
                         data-bs-target="#modaledit{{row.id}}">Edit</a>
-                     <a href="/delete/{{row.id}}" class="btn btn-danger btn-xs"
+                     <a href="/delete/{{row.id}}" class="btn btn-danger btn-xs margin"
                         onclick="return confirm('Are You Sure to Delete ?')">Delete</a>
                     </td>
                 </tr>
